@@ -19,8 +19,11 @@ jobs:
           distribution: 'temurin'
           java-version: 17
 
-      - name: Build APK with wrapper
-        run: ./gradlew assembleDebug
+      - name: Generate Gradle Wrapper
+        run: gradle wrapper
+
+      - name: Build APK using Gradle
+        run: gradle assembleDebug
 
       - name: Upload APK to GitHub Release
         uses: ncipollo/release-action@v1
