@@ -9,6 +9,18 @@
         android:icon="@drawable/ic_lock"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
 
+        <activity
+            android:name=".LauncherActivity"
+            android:exported="true"
+            android:label="Lock"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <receiver android:name=".LockShortcutReceiver"
             android:exported="true"
             android:enabled="true">
