@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Please activate device admin", Toast.LENGTH_LONG).show()
 
-            val intent = Intent(Settings.ACTION_DEVICE_ADMIN_SETTINGS).apply {
+            val intent = Intent(Settings.ACTION_SECURITY_SETTINGS).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
             startActivity(intent)
