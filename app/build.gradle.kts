@@ -11,8 +11,8 @@ android {
         applicationId = "com.xresolve.lockshortcut"
         minSdk = 35
         targetSdk = 35
-        versionCode = 13
-        versionName = "1.0.20"
+        versionCode = 14
+        versionName = "1.0.21"
     }
 
     compileOptions {
