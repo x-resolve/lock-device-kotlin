@@ -23,7 +23,7 @@ jobs:
         run: gradle wrapper
 
       - name: Build APK using Gradle
-        run: gradle assembleDebug
+        run: gradle assembleDebug --warning-mode all
 
       - name: Upload APK to GitHub Release
         uses: ncipollo/release-action@v1
