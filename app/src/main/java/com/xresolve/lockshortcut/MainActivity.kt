@@ -6,6 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        overridePendingTransition(0, 0)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+        )
+
         super.onCreate(savedInstanceState)
 
         // Redirige inmediatamente al BroadcastReceiver
@@ -14,5 +20,6 @@ class MainActivity : AppCompatActivity() {
         sendBroadcast(intent)
 
         finish()
+        overridePendingTransition(0, 0)
     }
 }
