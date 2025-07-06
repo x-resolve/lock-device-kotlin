@@ -7,11 +7,10 @@ on:
 
 jobs:
   build:
-    name: Build Debug APK
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up JDK 17
@@ -20,10 +19,7 @@ jobs:
           distribution: 'temurin'
           java-version: 17
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
-
-      - name: Build debug APK
+      - name: Build APK with wrapper
         run: ./gradlew assembleDebug
 
       - name: Upload APK to GitHub Release
@@ -32,6 +28,3 @@ jobs:
           artifacts: app/build/outputs/apk/debug/app-debug.apk
           tag: ${{ github.ref_name }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: LockShortcut APK
-          draft: false
-          prerelease: false
