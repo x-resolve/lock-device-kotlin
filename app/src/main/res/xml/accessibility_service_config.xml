@@ -1,0 +1,8 @@
+<accessibility-service xmlns:android="…">
+    <description>@string/acc_service_desc</description>
+    <accessibilityEventTypes>typeWindowStateChanged</accessibilityEventTypes>
+    <packageNames />
+    <accessibilityFeedbackType>feedbackGeneric</accessibilityFeedbackType>
+    <notificationTimeout>100</notificationTimeout>
+    <settingsActivity />
+</accessibility-service>

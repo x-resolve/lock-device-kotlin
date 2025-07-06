@@ -1,42 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.xresolve.lockshortcut">
+<manifest xmlns:android="…"
+    package="com.xresolve.lockshortcut" >
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
-        android:label="Lock"
-        android:icon="@drawable/ic_lock"
-        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        … >
 
-        <receiver android:name=".LockShortcutReceiver"
-            android:exported="true"
-            android:enabled="true">
+        <service
+            android:name=".LockAccessibilityService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.xresolve.lockshortcut.ACTION_LOCK_SCREEN" />
+                <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
-        </receiver>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
 
-        <receiver
-            android:name=".LockDeviceAdminReceiver"
+        <receiver android:name=".LockDeviceAdminReceiver"
             android:permission="android.permission.BIND_DEVICE_ADMIN"
             android:exported="true">
             <meta-data
-                android:name="android.app.device_admin"
-                android:resource="@xml/device_admin" />
+              android:name="android.app.device_admin"
+              android:resource="@xml/device_admin" />
             <intent-filter>
-                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+              <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
             </intent-filter>
         </receiver>
 
         <activity android:name=".MainActivity"
-            android:exported="true"
-            android:label="Lock"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:excludeFromRecents="true">
+           android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
