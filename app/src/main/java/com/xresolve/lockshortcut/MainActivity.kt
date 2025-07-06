@@ -18,13 +18,12 @@ class MainActivity : AppCompatActivity() {
             devicePolicyManager.lockNow()
             finish()
         } else {
-            // Pedir permiso de administrador
+ 
             val intent = Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN).apply {
                 putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, adminComponent)
                 putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "Lock button requires Device Admin permission to work.")
             }
             startActivity(intent)
-            finish()
         }
     }
 }
