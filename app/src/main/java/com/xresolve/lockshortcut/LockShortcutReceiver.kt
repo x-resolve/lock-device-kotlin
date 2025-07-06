@@ -6,6 +6,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.provider.Settings
+import android.widget.Toast
 
 class LockShortcutReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
