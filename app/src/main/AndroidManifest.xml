@@ -1,3 +1,4 @@
+<!-- 'package' is present for legacy compatibility, but namespace is set in build.gradle.kts -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xresolve.lockshortcut">
 
