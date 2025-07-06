@@ -8,4 +8,5 @@ if not exist "%GRADLE_WRAPPER_PROPERTIES%" (
   exit /b 1
 )
 
-java -jar gradle\wrapper\gradle-wrapper.jar %*
+call gradlew.bat wrapper --gradle-version 8.2 || exit /b 1
+call gradlew.bat %*
